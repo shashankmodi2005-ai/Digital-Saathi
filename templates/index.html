@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Saathi</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <h1>🤝 Digital Saathi</h1>
+        <div class="header-buttons">
+            <button id="team-btn" type="button" class="team-btn" onclick="showTeamModal()">👥 Our Team</button>
+            <button id="lang-btn" type="button" onclick="toggleLanguage()">🌐 English</button>
+            <button id="voice-btn" type="button" onclick="toggleVoice()">🔊 Aawaz Suno</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2 id="hero-title">Digital Duniya Ab Aasan Hai!</h2>
+        <p id="hero-desc">सरकारी सेवाएं सीखें, ऑनलाइन धोखाधड़ी पहचानें और डिजिटल कौशल बढ़ाएं।</p>
+    </section>
+
+    <!-- Main Cards Section -->
+    <main class="cards">
+        <article class="card">
+            <div class="emoji 3d-effect">🏛️</div>
+            <h3 id="card1-title">सरकारी सेवाएं</h3>
+            <p id="card1-desc">Aadhaar, PAN और सरकारी पोर्टल की जानकारी पाएं।</p>
+            <button id="card1-btn" type="button" onclick="showPanel('services')">जानकारी देखें</button>
+        </article>
+
+        <article class="card">
+            <div class="emoji 3d-effect">🛡️</div>
+            <h3 id="card2-title">Cyber Safety</h3>
+            <p id="card2-desc">OTP scam, fake links और ऑनलाइन धोखाधड़ी से बचना सीखें।</p>
+            <button id="card2-btn" type="button" onclick="showPanel('safety')">सुरक्षा सीखें</button>
+        </article>
+
+        <article class="card">
+            <div class="emoji 3d-effect">📱</div>
+            <h3 id="card3-title">Digital Learning</h3>
+            <p id="card3-desc">मोबाइल, इंटरनेट, 20+ Quizzes, 3D Gaming aur AI Mentorship ke sath seekhein.</p>
+            <button id="card3-btn" type="button" onclick="showPanel('learning')">कौशल बढ़ाएं</button>
+        </article>
+    </main>
+
+    <!-- Smart Government Services Finder -->
+    <section class="feature-container">
+        <h2 id="finder-title">🔍 Smart Government Services Finder</h2>
+        <p id="finder-desc">Apni zaroorat select karein aur sahi Government Scheme/Portal khojein!</p>
+        <div class="finder-box">
+            <select id="service-category" onchange="findGovtService()">
+    <option value="">-- Choose Category / Shreni Chunein --</option>
+    <option value="identity">🏛️ Central Govt: Aadhaar, PAN & Passport</option>
+    <option value="state">📜 State Govt: Income, Caste & Domicile (UP e-District)</option>
+    <option value="helper">💡 All-in-One Govt Link Helper Tool (Anti-Fraud)</option>
+</select>
+            
+            <div id="service-result" class="result-card">
+                <p>Upar se category select karein aur portal details dekhein.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Scam Awareness Simulator -->
+    <section class="feature-container simulator-bg">
+        <h2 id="sim-title">⚠️ Real Scam Awareness Simulator</h2>
+        <p id="sim-desc">Aapke mobile par aaye iss Message/Email ko dekhein. Kya yeh REAL hai ya SCAM?</p>
+        <div id="simulator-box" class="phone-screen 3d-phone">
+            <div class="message-header">📩 Incoming SMS / Email</div>
+            <div id="sim-message" class="message-body"></div>
+            <div class="sim-actions">
+                <button type="button" class="btn-safe" onclick="checkScamDecision(false)">✅ Real Message</button>
+                <button type="button" class="btn-scam" onclick="checkScamDecision(true)">🚨 Fake Scam Message</button>
+            </div>
+            <p id="sim-feedback"></p>
+            <button id="next-sim-btn" type="button" onclick="nextScamScenario()" style="display:none; margin-top:10px;">Agle Scenario Par Jayein ➔</button>
+        </div>
+    </section>
+
+    <!-- 🎥 Audio-Visual Video Lessons Section -->
+    <section class="feature-container video-section" id="video-arena">
+        <h2>🎥 Audio-Visual & Regional Video Lessons</h2>
+        <p>Aasani se samajhne ke liye interactive video aur audio lessons dekhein:</p>
+        
+        <div class="video-grid" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            <div class="video-card 3d-card" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 15px; width: 380px; text-align: left;">
+                <iframe width="100%" height="215" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Online Scam Safety Lesson" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+                <h4 style="color: #38bdf8; margin-top: 10px;">🎥 Lesson 1: Online Scam & Fake Links Safety</h4>
+                <p style="font-size: 13px; color: #94a3b8; margin-top: 5px;">Aapne phone par aane wale fake links aur QR code scam se kaise bachein.</p>
+            </div>
+            <div class="video-card 3d-card" style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 15px; width: 380px; text-align: left;">
+                <iframe width="100%" height="215" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Aadhaar & Digital Services Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 12px;"></iframe>
+                <h4 style="color: #38bdf8; margin-top: 10px;">🎥 Lesson 2: Aadhaar & Govt Scheme Finder</h4>
+                <p style="font-size: 13px; color: #94a3b8; margin-top: 5px;">Ghar baithe sarkari portals aur DigiLocker ka upyog karein.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎮 3D Quiz & Interactive Learning Games Section -->
+    <section class="feature-container gaming-section">
+        <h2>🎮 3D Learning Arena & 20+ Cyber Quiz</h2>
+        <p>Interactive 3D Games aur Quizzes ke saath Digital Safety aur Smart Banking ke master baniye!</p>
+        
+        <div class="game-tabs">
+            <button class="tab-btn active" onclick="switchGameTab('quiz')">🧠 20-Question Quiz</button>
+            <button class="tab-btn" onclick="switchGameTab('scam-buster')">🎯 3D Scam Buster Game</button>
+            <button class="tab-btn" onclick="switchGameTab('password-shield')">🔐 3D Password Shield</button>
+            <button class="tab-btn" onclick="switchGameTab('ai-guidelines')">📋 Guidelines & Practice</button>
+        </div>
+
+        <!-- Tab 1: 20 Question Cyber Quiz -->
+        <div id="tab-quiz" class="game-tab-content active">
+            <div id="quiz-box">
+                <div class="quiz-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; color: #38bdf8; font-weight: bold;">
+                    <span id="question-count">Question 1 of 20</span>
+                    <span id="score-count">Score: 0</span>
+                </div>
+                <p id="quiz-question" class="question-text" style="font-size: 18px; margin-bottom: 20px; font-weight: 600;">Question loading...</p>
+                <div id="quiz-options" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                <div id="feedback-message" style="margin-top: 15px; font-weight: bold;"></div>
+                <button id="next-btn" type="button" onclick="nextQuestion()" style="display: none; margin-top: 15px;">Agle Sawal Par Jayein ➔</button>
+            </div>
+            <div id="result-box" style="display: none;">
+                <h3>🎉 Quiz Complete!</h3>
+                <p id="final-score" style="margin: 15px 0; font-size: 20px;">Aapka Total Score: 0 / 20</p>
+                <button id="restart-btn" type="button" onclick="restartQuiz()">Wapas Quiz Khelein 🔄</button>
+            </div>
+        </div>
+
+        <!-- Tab 2: 3D Scam Buster Game -->
+        <div id="tab-scam-buster" class="game-tab-content">
+            <div class="game-container 3d-card">
+                <h3>🎯 3D Scam Buster Challenge</h3>
+                <p>Niche aane wale target me se SCAM message ko pehchan kar "Bust (Destroy)" karein!</p>
+                <div id="buster-target-card" class="buster-card 3d-flip" style="background: rgba(30, 41, 59, 0.9); border: 2px solid #38bdf8; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                    <span id="target-type" class="target-badge">📩 SMS Alert</span>
+                    <p id="target-text" style="margin-top: 10px; font-size: 15px;">Your Bank Account is blocked! Click link to unblock: http://bit.ly/scam-bank</p>
+                </div>
+                <div class="game-actions" style="display: flex; gap: 15px; justify-content: center;">
+                    <button class="btn-scam" onclick="playScamBuster(true)">💥 Bust Scam!</button>
+                    <button class="btn-safe" onclick="playScamBuster(false)">✅ Safe Message</button>
+                </div>
+                <div id="buster-score" class="game-score">Score: 0 | Streak: 🔥 0</div>
+            </div>
+        </div>
+
+        <!-- Tab 3: 3D Password Shield Game -->
+        <div id="tab-password-shield" class="game-tab-content">
+            <div class="game-container 3d-card">
+                <h3>🔐 3D Password Shield Builder</h3>
+                <p>Ek strong password banayein aur dekhein 3D Shield bar kitni power-up hoti hai!</p>
+                <div class="shield-display">
+                    <div id="shield-3d-icon" class="shield-icon 3d-pulse">🛡️</div>
+                    <div class="shield-bar-bg">
+                        <div id="shield-power-bar" class="shield-power-fill"></div>
+                    </div>
+                    <span id="shield-status-text" style="font-weight: bold; color: #38bdf8;">Shield Power: 0%</span>
+                </div>
+                <div class="pass-input-box" style="margin-top: 15px;">
+                    <input type="text" id="game-pass-input" placeholder="Apna test password likhein..." oninput="checkPasswordShieldPower()">
+                </div>
+                <ul id="shield-tips" class="shield-tips-list" style="text-align: left; max-width: 400px; margin: 15px auto;">
+                    <li id="tip-len">❌ Minimum 8 characters</li>
+                    <li id="tip-num">❌ Special Characters (@, #, $) & Numbers</li>
+                    <li id="tip-case">❌ Upper & Lowercase Letters</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 4: Guidelines & Practice Sets -->
+        <div id="tab-ai-guidelines" class="game-tab-content">
+            <div class="game-container 3d-card" style="text-align: left;">
+                <h3 style="color: #38bdf8;">📋 Digital Mentor Safety Guidelines</h3>
+                <ul style="line-height: 1.8; margin-top: 15px; margin-left: 20px; color: #cbd5e1;">
+                    <li>1️⃣ <b>OTP Protection:</b> Kabhi bhi phone par aaye OTP ko kisi unkown person ke sath share na karein.</li>
+                    <li>2️⃣ <b>Secure Website Check:</b> Always look for 🔒 Padlock icon aur <b>https://</b> address bar me check karein.</li>
+                    <li>3️⃣ <b>Unknown APK Downloads:</b> WhatsApp ya Email link se unknown app kabhi install na karein.</li>
+                    <li>4️⃣ <b>Reporting Fraud:</b> Kisi bhi cyber fraud ki sthiti me turant <b>1930</b> helpline number par call karein.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Assistant Section -->
+    <section class="feature-container ai-chat-bg">
+        <h2 id="ai-title">🤖 Digital Saathi AI Assistant</h2>
+        <p id="ai-desc">Aapko kisi bhi sarkari yojana ya cyber safety par sawal puchna hai? Yahan puchein!</p>
+        <div class="chat-box">
+            <div id="chat-messages" class="chat-messages">
+                <div class="bot-msg">👋 Namaste! Main aapka Digital Saathi AI hu. Aap mujhse Aadhaar, PAN, ya Cyber Fraud ke baare me pooch sakte hain.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Yahan apna sawal likhein..." onkeypress="handleKeyPress(event)">
+                <button type="button" onclick="sendUserMessage()">Bhejein ➔</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-content 3d-modal">
+            <span class="close-btn" onclick="closePanel()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
